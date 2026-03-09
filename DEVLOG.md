@@ -29,7 +29,6 @@ One challenge was detecting when the player passes GO. I solved this by checking
 
 ---
 
-
 ## Entry 4 – Fixing a Traversal Bug
 
 While testing the print functions, I accidentally created an infinite loop because I used a normal `while` loop when printing the board.
@@ -37,5 +36,19 @@ While testing the print functions, I accidentally created an infinite loop becau
 Since the list is circular, it never reaches `nullptr`. To fix this I switched to a `do-while` loop that stops once the traversal returns to the head node.
 
 This guarantees that each node is visited exactly once.
+
+---
+
+## Entry 5 – Implementing removeByName
+
+Removing nodes in a circular list required careful pointer handling. The most difficult cases were:
+
+* deleting the head node
+* deleting the tail node
+* deleting the only node in the list
+
+I used two pointers (`current` and `prev`) to walk through the list and update links when a match is found. After deleting a node I also reconnected the tail back to the head to maintain the circular structure.
+
+I also added logic to move the player pointer if the player was standing on the node being deleted.
 
 ---
