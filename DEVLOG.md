@@ -52,3 +52,17 @@ I used two pointers (`current` and `prev`) to walk through the list and update l
 I also added logic to move the player pointer if the player was standing on the node being deleted.
 
 ---
+
+## Entry 6 – Testing Edge Cases
+
+The last step was testing different edge cases to make sure the board remained stable.
+
+I tested the following scenarios:
+
+* moving the player on an empty board
+* deleting a node when only one node exists
+* deleting the head node
+* deleting the tail node
+* inserting spaces until the board reaches the 40 space limit
+
+These tests helped confirm that the circular structure stayed intact and that the board limit was properly enforced.
