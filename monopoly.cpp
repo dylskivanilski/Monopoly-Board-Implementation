@@ -217,15 +217,39 @@ setup much faster.
         playerNode->data.print();
     }
 
-
-    int getPassGoCount(){
-        return passGoCount;
-    }
-
 /*
 DAY 7 NOTES
 -----------
 Today I implemented the player movement system. The movePlayer
 function advances the player pointer through the circular list
 based on the number of dice steps rolled.
+*/
+
+    int getPassGoCount(){
+        return passGoCount;
+    }
+
+    // ---------------------
+    // show next spaces
+    // ---------------------
+    void printFromPlayer(int count){
+
+        if(playerNode == nullptr) return;
+
+        Node<T>* currentNode = playerNode;
+
+        for(int i=0;i<count;i++){
+            currentNode->data.print();
+            currentNode = currentNode->nextNode;
+        }
+    }
+
+/*
+DAY 8 & 9 NOTES
+-----------
+I added logic to track how many times the player passes
+the GO space. This happens when the player moves from the
+tail node back to the head node. Also created a function to preview upcoming board spaces
+from the player's current position. This helps visualize
+future positions during the simulation.
 */
