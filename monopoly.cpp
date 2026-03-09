@@ -122,3 +122,49 @@ The constructor sets all pointers to nullptr and resets counters
 so the board starts empty before spaces are added.
 */
     
+    // destructor so memory isn't leaked
+    ~CircularLinkedList(){
+        clear();
+    }
+
+
+    // ---------------------
+    // add one board space
+    // ---------------------
+    bool addSpace(T value){
+
+        if(boardFull()){
+            cout<<"Board already full\n";
+            return false;
+        }
+
+        Node<T>* newNode = new Node<T>(value);
+
+        if(headNode == nullptr){
+
+            headNode = newNode;
+            tailNode = newNode;
+            playerNode = newNode;
+
+            newNode->nextNode = headNode;
+        }
+        else{
+
+            tailNode->nextNode = newNode;
+            tailNode = newNode;
+
+            // keep circle intact
+            tailNode->nextNode = headNode;
+        }
+
+        nodeCount++;
+        return true;
+    }
+
+/*
+DAY 5 NOTES
+-----------
+Today I implemented the addSpace function that allows properties
+to be inserted into the board. I handled the special case where
+the first node becomes the head, tail, and starting player position.
+*/
