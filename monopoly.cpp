@@ -342,3 +342,35 @@ Today I implemented the ability to remove a property from
 the board by name. This required updating links carefully
 to maintain the circular structure.
 */
+
+    // ---------------------
+    // find spaces by color
+    // ---------------------
+    vector<string> findByColor(string color){
+
+        vector<string> matches;
+
+        if(headNode == nullptr)
+            return matches;
+
+        Node<T>* current = headNode;
+
+        do{
+
+            if(current->data.propertyColor == color)
+                matches.push_back(current->data.propertyName);
+
+            current = current->nextNode;
+
+        }
+        while(current != headNode);
+
+        return matches;
+    }
+
+/*
+DAY 12 NOTES
+------------
+Today I added a search feature that finds properties by
+their color group and returns a list of matching names.
+*/
