@@ -193,3 +193,39 @@ Today I added the addMany function so multiple spaces can be
 inserted at once when building the board. This makes board
 setup much faster.
 */
+
+    // ---------------------
+    // move player pointer
+    // ---------------------
+    void movePlayer(int steps){
+
+        if(playerNode == nullptr){
+            cout<<"Board empty\n";
+            return;
+        }
+
+        for(int i=0;i<steps;i++){
+
+            // if we move from tail -> head we passed GO
+            if(playerNode == tailNode)
+                passGoCount++;
+
+            playerNode = playerNode->nextNode;
+        }
+
+        cout<<"Player landed on: ";
+        playerNode->data.print();
+    }
+
+
+    int getPassGoCount(){
+        return passGoCount;
+    }
+
+/*
+DAY 7 NOTES
+-----------
+Today I implemented the player movement system. The movePlayer
+function advances the player pointer through the circular list
+based on the number of dice steps rolled.
+*/
