@@ -402,3 +402,35 @@ Created the countSpaces function which traverses the circular list
 and counts how many spaces exist on the board. This was useful for verifying
 that the board was being built correctly.
 */
+
+    // ---------------------
+    // delete whole list
+    // ---------------------
+    void clear(){
+
+        if(tailNode)
+            tailNode->nextNode = nullptr;
+
+        Node<T>* current = headNode;
+
+        while(current != nullptr){
+
+            Node<T>* next = current->nextNode;
+            delete current;
+            current = next;
+        }
+
+        headNode = nullptr;
+        tailNode = nullptr;
+        playerNode = nullptr;
+        nodeCount = 0;
+    }
+};
+
+/*
+DAY 14 NOTES
+------------
+Today I implemented the clear function which deletes every
+node in the list to prevent memory leaks. The destructor
+calls this automatically when the board object is destroyed.
+*/
