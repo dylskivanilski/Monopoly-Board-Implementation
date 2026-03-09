@@ -253,3 +253,30 @@ tail node back to the head node. Also created a function to preview upcoming boa
 from the player's current position. This helps visualize
 future positions during the simulation.
 */
+
+    // ---------------------
+    // print whole board once
+    // ---------------------
+    void printBoardOnce(){
+
+        if(headNode == nullptr){
+            cout<<"Board empty\n";
+            return;
+        }
+
+        Node<T>* current = headNode;
+
+        do{
+            current->data.print();
+            current = current->nextNode;
+        }
+        while(current != headNode);
+    }
+
+/*
+DAY 10 NOTES
+------------
+Today I added functionality to print the entire board layout.
+This function traverses the circular linked list starting
+from the head and prints each space once.
+*/
