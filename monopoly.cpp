@@ -486,7 +486,7 @@ DAY 15 NOTES
 Today I finished the project by building the simulation
 in main(). I created a small board and simulated turns
 with dice rolls to test player movement and board traversal.
-I also would like to say sorry about the commits and I understand if I don't get any points for them.
+I also would like to apologize about the commits and I understand if I don't get any points for them.
 I originally thought that I was just gonna build the code with notes at the end of each day I worked on it,
 but I turned them into commits on the day of so it's my fault for hearing commits as comments when we were in class.
 */
