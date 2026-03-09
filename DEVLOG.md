@@ -18,3 +18,13 @@ tailNode -> nextNode = headNode
 Once that was fixed, I tested adding multiple spaces and confirmed the list stayed circular.
 
 ---
+
+## Entry 3 – Adding Player Movement
+
+After the board structure was working, I implemented the `movePlayer` function. The player position is stored using a pointer (`playerNode`) that moves through the circular list.
+
+The movement is done step-by-step instead of using indexing. Each step simply moves the pointer to `nextNode`.
+
+One challenge was detecting when the player passes GO. I solved this by checking when the player moves from the tail node to the head node. When that happens, the `passGoCount` variable increases.
+
+---
