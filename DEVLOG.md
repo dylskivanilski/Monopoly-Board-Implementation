@@ -28,3 +28,14 @@ The movement is done step-by-step instead of using indexing. Each step simply mo
 One challenge was detecting when the player passes GO. I solved this by checking when the player moves from the tail node to the head node. When that happens, the `passGoCount` variable increases.
 
 ---
+
+
+## Entry 4 – Fixing a Traversal Bug
+
+While testing the print functions, I accidentally created an infinite loop because I used a normal `while` loop when printing the board.
+
+Since the list is circular, it never reaches `nullptr`. To fix this I switched to a `do-while` loop that stops once the traversal returns to the head node.
+
+This guarantees that each node is visited exactly once.
+
+---
