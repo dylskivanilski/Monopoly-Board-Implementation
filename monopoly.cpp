@@ -434,3 +434,59 @@ Today I implemented the clear function which deletes every
 node in the list to prevent memory leaks. The destructor
 calls this automatically when the board object is destroyed.
 */
+
+// dice roll
+int rollDice2to12(){
+    return (rand()%6+1) + (rand()%6+1);
+}
+
+
+// ---------------------
+// demo simulation
+// ---------------------
+int main(){
+
+    srand(time(nullptr));
+
+    CircularLinkedList<MonopolySpace> board;
+
+    // build a small board
+    board.addSpace(MonopolySpace("GO","None",0,0));
+    board.addSpace(MonopolySpace("Mediterranean Ave","Brown",60,2));
+    board.addSpace(MonopolySpace("Baltic Ave","Brown",60,4));
+    board.addSpace(MonopolySpace("Campus Parking","Utility",150,12));
+    board.addSpace(MonopolySpace("Library","Blue",200,20));
+    board.addSpace(MonopolySpace("Student Center","Green",220,18));
+    board.addSpace(MonopolySpace("Dining Hall","Yellow",180,15));
+
+    cout<<"Initial Board:\n";
+    board.printBoardOnce();
+
+    cout<<"\nBoard size check: "<<board.countSpaces()<<endl;
+
+    // simulate some turns
+    for(int turn=1; turn<=10; turn++){
+
+        int roll = rollDice2to12();
+
+        cout<<"\nTurn "<<turn<<" | Rolled "<<roll<<endl;
+
+        board.movePlayer(roll);
+
+        cout<<"Next spaces:\n";
+        board.printFromPlayer(5);
+
+        cout<<"Times passed GO: "<<board.getPassGoCount()<<endl;
+    }
+    return 0;
+}
+/*
+DAY 15 NOTES
+------------
+Today I finished the project by building the simulation
+in main(). I created a small board and simulated turns
+with dice rolls to test player movement and board traversal.
+I also would like to say sorry about the commits and I understand if I don't get any points for them.
+I originally thought that I was just gonna build the code with notes at the end of each day I worked on it,
+but I turned them into commits on the day of so it's my fault for hearing commits as comments when we were in class.
+*/
