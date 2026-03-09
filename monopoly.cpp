@@ -374,3 +374,31 @@ DAY 12 NOTES
 Today I added a search feature that finds properties by
 their color group and returns a list of matching names.
 */
+
+    // ---------------------
+    // count spaces via traversal
+    // ---------------------
+    int countSpaces(){
+
+        if(headNode == nullptr)
+            return 0;
+
+        int count = 0;
+        Node<T>* current = headNode;
+
+        do{
+            count++;
+            current = current->nextNode;
+        }
+        while(current != headNode);
+
+        return count;
+    }
+
+/*
+DAY 13 NOTES
+------------
+Created the countSpaces function which traverses the circular list
+and counts how many spaces exist on the board. This was useful for verifying
+that the board was being built correctly.
+*/
