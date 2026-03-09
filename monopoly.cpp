@@ -168,3 +168,28 @@ Today I implemented the addSpace function that allows properties
 to be inserted into the board. I handled the special case where
 the first node becomes the head, tail, and starting player position.
 */
+
+    // ---------------------
+    // add many spaces
+    // ---------------------
+    int addMany(vector<T> values){
+
+        int spacesAdded = 0;
+
+        for(T v : values){
+            if(addSpace(v))
+                spacesAdded++;
+            else
+                break;
+        }
+
+        return spacesAdded;
+    }
+
+/*
+DAY 6 NOTES
+-----------
+Today I added the addMany function so multiple spaces can be
+inserted at once when building the board. This makes board
+setup much faster.
+*/
