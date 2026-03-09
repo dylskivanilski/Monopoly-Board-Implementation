@@ -280,3 +280,65 @@ Today I added functionality to print the entire board layout.
 This function traverses the circular linked list starting
 from the head and prints each space once.
 */
+
+    // ---------------------
+    // remove by name
+    // ---------------------
+    bool removeByName(string name){
+
+        if(headNode == nullptr) return false;
+
+        Node<T>* current = headNode;
+        Node<T>* prev = tailNode;
+
+        do{
+
+            if(current->data.propertyName == name){
+
+                // only node
+                if(current == headNode && current == tailNode){
+                    delete current;
+                    headNode = nullptr;
+                    tailNode = nullptr;
+                    playerNode = nullptr;
+                }
+                else{
+
+                    prev->nextNode = current->nextNode;
+
+                    if(current == headNode)
+                        headNode = current->nextNode;
+
+                    if(current == tailNode)
+                        tailNode = prev;
+
+                    if(playerNode == current)
+                        playerNode = current->nextNode;
+
+                    delete current;
+                }
+
+                nodeCount--;
+
+                if(tailNode)
+                    tailNode->nextNode = headNode;
+
+                return true;
+            }
+
+            prev = current;
+            current = current->nextNode;
+
+        }
+        while(current != headNode);
+
+        return false;
+    }
+
+/*
+DAY 11 NOTES
+------------
+Today I implemented the ability to remove a property from
+the board by name. This required updating links carefully
+to maintain the circular structure.
+*/
